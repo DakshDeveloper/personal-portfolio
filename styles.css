@@ -1,0 +1,1003 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
+
+/*code for animations used*/
+@keyframes slide-from-left{
+    0% {
+        transform: translateX(-100%);
+    }
+    100% {
+        transform: translateX(0%);
+    }
+}
+/*following 2 are mainly used for blog animation*/
+@keyframes slide-from-left-card2{
+    0% {
+        transform: translateX(-250%);
+    }
+    100% {
+        transform: translateX(0%);
+    }
+}
+
+@keyframes slide-from-left-card3{
+    0% {
+        transform: translateX(-350%);
+    }
+    100% {
+        transform: translateX(0%);
+    }
+}
+
+@keyframes rotate-about-y{
+    0% {
+        transform: rotateY(0deg);
+    }
+    100% {
+        transform: rotateY(360deg);
+    }
+}
+
+@keyframes grow-from-center{
+    0% {
+        transform: scale(0);
+    }
+    100% {
+        transform: scale(1.0);
+    }
+}
+
+@keyframes slide-more-right{
+    0% {
+        transform: translateX(-80%);
+    }
+    70% {
+        transform: translateX(17%);
+    }
+    100% {
+        transform: translateX(0%);
+    }
+}
+
+/* DESIGNING OF HEADER BEGINS */
+.header{
+    display: inline-flex;
+    position: fixed;
+    top: 10px;
+    left: 0;
+    right: 10px;
+    padding: 20px 5%;
+    background: transparent;
+
+}
+
+/*creating a logo of the website which keeps spinning around and when hovered on, it will turn into another image*/
+.flip-logo{
+    animation: rotate-about-y;
+    animation-delay: 1.5s;
+    animation-duration: 2s;
+    animation-iteration-count: infinite;
+    margin-top: 10px;
+    background-color: transparent;
+    width: 70px;
+    height: 70px;
+    perspective: 1000px; /* 3D effect */
+    margin-right: 20px;
+}
+  
+/*using a class to position the whole logo*/
+.flip-logo-inner{
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transition: transform 0.8s;
+    transform-style: preserve-3d;
+}
+  
+/*horizontal flipping when you hover over the container*/
+.flip-logo:hover .flip-logo-inner{
+    transform: rotateY(180deg);
+}
+  
+/*positioning the front and back side and hiding the image on the back*/
+.flip-logo-front, .flip-logo-back{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    -webkit-backface-visibility: hidden; /* Safari - for safari, to make sure animations work well, we add '-webkit-' expression to each animating statement each time it is used*/
+    backface-visibility: hidden;
+}
+  
+/*back-up for the front image (transparency)*/
+.flip-logo-front{
+    background-color: transparent;
+    color: transparent;
+}
+  
+/*back-up for the back image (transparency)*/
+.flip-logo-back{
+    background-color: transparent;
+    color: transparent;
+    transform: rotateY(180deg);
+}
+
+/*header text styling*/
+.my-name{
+    margin-top: 10px;
+    font-family: Poppins;
+    font-weight: 400;
+    font-size: 40px;
+    color: rgb(137, 255, 245);
+}
+
+.my-name a{
+    text-decoration: none;
+    color: rgb(137, 255, 245);
+}
+
+.nav-bar, .nav-bar a {
+    color: rgb(137, 255, 245);
+    text-align: center;
+    margin-left: auto;
+    margin-top: 25px;
+    font-size: 20px;
+    font-family: Poppins;
+    justify-content: space-around;
+    padding: 5px;
+    text-decoration: none;
+    transition: 0.4s;
+}
+
+.nav-bar a:hover{
+    background-color: rgb(137, 255, 245);
+    color: rgb(0, 32, 32);
+    font-weight: 500;
+    border-radius: 5px;
+}
+/* DESIGNING OF HEADER ENDS HERE */
+
+/* DESIGNING OF BODY BEGINS */
+
+/*setting up the background for the webpages*/
+body{
+    background: url("blog-bg.jpg");
+}
+
+/*each webpage is divided into 2 or more sections for the convenience of styling and positioning and adding features to it*/
+.sect-1{
+    display: inline-flex;
+    margin-left: 100px;
+    margin-top: 120px;
+}
+
+.pp img{
+    animation: slide-from-left-card2;
+    animation-duration: 1s;
+    margin-left: 100px;
+    max-width: 480px;
+    max-height: 600px;
+    border-radius: 100px;
+}
+
+.img-hover{
+    animation: slide-from-left-card2;
+    animation-duration: 1s;
+    position: absolute;
+    right: auto;
+    left: 208px;
+    width: 480px;
+    height: 480px;
+    transition: 0.5s;
+    border-radius: 100px;
+}
+
+.img-hover:hover{
+    background:rgb(0, 32, 32); /*rgb(0, 32, 32) is the basic color of the background, so using this color to darken the image upon hovering would make it look soothing*/
+    opacity: 0.7;
+
+}
+
+.info{
+    /*animation: grow-from-center;
+    animation-duration: 1s;*/
+    animation: slide-from-left-card3;
+    animation-duration: 1s;
+    position: absolute;
+    left: auto;
+    right: 150px;
+    max-width: 450px;
+    font-family: Poppins;
+}
+
+.info h1{
+    font-size: 40px;
+    font-weight: 700;
+    color: white;
+}
+
+.info h3{
+    font-size: 30px;
+    font-weight: 500;
+    color: rgb(137, 255, 245);
+    transition: transform 0.6s;
+}
+
+.info a{
+    text-decoration: none;
+    color: rgb(137, 255, 245);
+}
+
+.info h3:hover{
+    transform: scale(1.05);
+}
+
+.info p{
+    color: rgb(137, 255, 245);
+    font-size: 18px;
+    font-weight: 200;
+}
+
+.buttons{
+    margin-top: 50px;
+    display: flex;
+    justify-content: space-between;
+    width: 450px;
+}
+
+.buttons button{
+    transition: transform 0.6s;
+}
+
+.buttons button:hover{
+    transform: scale(1.2);
+    cursor: pointer;
+}
+
+.talk button{
+    font-family: Poppins;
+    font-size: 15px;
+    font-weight: 500;
+    background-color: rgb(0, 32, 32);
+    border: 1px solid rgb(137, 255, 245);
+    color: rgb(137, 255, 245);
+    padding: 10px;
+    margin-left: 20px;
+    border-radius: 10px;
+}
+
+.check-portfolio button{
+    
+    background-color: rgb(137, 255, 245);
+    font-family: Poppins;
+    font-size: 15px;
+    font-weight: 700;
+    color: rgb(0, 32, 32);
+    padding: 10px;
+    margin-right: 20px;
+    border-radius: 10px;
+    transition: 0.5s;
+}
+
+/*DESIGNING OF THE FOOTER BEGINS*/
+.footer{
+    display: inline-flex;
+    position: fixed;
+    align-items: center;  
+    bottom: 30px;
+    left: 50px;
+    height: 40px;
+    padding: 0px 10%;
+    background: transparent;
+    justify-content: space-evenly;
+}
+
+.follow-stat{
+    position: fixed;
+    left: 60px;
+    bottom: 15px;
+}
+
+.footer p{
+    color: rgb(137, 255, 245);
+    font-family: Poppins;
+    font-weight: 300;
+    font-size: 20px;
+}
+
+.soc-med img{
+    padding: 10px;
+    transition: 0.5s;
+}
+
+.soc-med img:hover{
+    transform: scale(0.8);
+}
+/*DESIGNING OF THE FOOTER END HERE*/
+
+.sect-2{
+    background: transparent;
+    display: inline-flex;
+    position: absolute;
+    top: 130px;
+}
+
+/*the styling code for the blog cards could be reduced enormously and repetitions could be prevented but it did not strike back then while coding*/
+.blog-card-1{
+    animation: slide-from-left;
+    animation-duration: 1s;
+    position: fixed;
+    left: 100px;
+    padding:20px;
+    border: 4px solid white;
+    border-radius: 30px;
+    width: 350px;
+    height: 340px;
+    padding-right: 30px;
+    transition: transform 0.5s;
+}
+
+.blog-card-1:hover{
+    transform: scale(1.05);
+}
+
+.blog-card-1 h2{
+    color: rgb(137, 255, 245);
+    font-family: Poppins;
+    font-size: 30px;
+    font-weight: 400px;
+}
+
+.blog-card-1 p{
+    color: rgb(137, 255, 245);
+    font-family: Poppins;
+    font-size: 20px;
+    font-weight: 100px;
+}
+
+.blog-card-1 a{
+    color: white;
+    font-family: Poppins;
+    text-decoration: none;
+}
+
+.blog-card-2{
+    animation: slide-from-left-card2;
+    animation-duration: 1.1s;
+    position: fixed;
+    left: 570px;
+    padding: 20px;
+    border: 4px solid white;
+    border-radius: 30px;
+    width: 350px;
+    height: 340px;
+    padding-right: 30px;
+    padding-left: 30px;
+    transition: transform 0.5s;
+}
+
+.blog-card-2:hover{
+    transform: scale(1.05);
+}
+
+
+.blog-card-2 h2{
+    color: rgb(137, 255, 245);
+    font-family: Poppins;
+    font-size: 30px;
+    font-weight: 400px;
+}
+
+.blog-card-2 p{
+    color: rgb(137, 255, 245);
+    font-family: Poppins;
+    font-size: 20px;
+    font-weight: 100px;
+}
+
+.blog-card-2 a{
+    color: white;
+    font-family: Poppins;
+    text-decoration: none;
+}
+
+.blog-card-3{
+    animation: slide-from-left-card3;
+    animation-duration: 1.2s;
+    position: fixed;
+    left: 1050px;
+    padding:20px;
+    border: 4px solid white;
+    border-radius: 30px;
+    width: 350px;
+    height: 340px;
+    padding-right: 30px;
+    transition: transform 0.5s;
+}
+
+.blog-card-3:hover{
+    transform: scale(1.05);
+}
+
+.blog-card-3 h2{
+    color: rgb(137, 255, 245);
+    font-family: Poppins;
+    font-size: 30px;
+    font-weight: 400px;
+}
+
+.blog-card-3 p{
+    color: rgb(137, 255, 245);
+    font-family: Poppins;
+    font-size: 20px;
+    font-weight: 100px;
+}
+
+.blog-card-3 a{
+    color: white;
+    font-family: Poppins;
+    text-decoration: none;
+}
+
+
+.sect-3{
+    animation: grow-from-center;
+    animation-duration: 1s;
+    position: absolute;
+    width: 97.5%;
+    margin: auto;
+    display:block;
+    align-items: center;
+    top: 530px;
+    padding: 10px;
+}
+
+.sect-3 h1{
+    text-align: center;
+    font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-size: 30px;
+    font-weight: 400;
+    color: white;
+    justify-content: space-around;
+}
+
+.sect-4{
+    animation: grow-from-center;
+    animation-duration: 1s;
+    position: absolute;
+    width: 97.5%;
+    margin: auto;
+    display: inline-flex;
+    align-items: center;
+    top: 620px;
+    padding: 0px;
+    justify-content: center;
+}
+
+.sect-4 input{
+    background: transparent;
+    border: 4px solid rgb(137, 255, 245);
+    height: 50px;
+    width: 500px;
+    border-radius: 10px;
+    color: white;
+    font-size: 18px;
+    font-family: Poppins;
+    padding-left: 10px;
+}
+
+.sect-4 input::placeholder{
+    align-items: center;
+    font-family: Poppins;
+    font-size: 18px;
+    color: rgb(202, 202, 202);
+}
+
+.sect-4 button{
+    background: rgb(0, 32, 32);
+    border: 4px solid rgb(137, 255, 245);
+    border-radius: 10px;
+    height: 58px;
+    padding: 10px;
+    color: rgb(137, 255, 245);
+    font-family: Poppins;
+    font-size: 18px;
+    font-weight: 700px;
+    align-items: center;
+    transition: transform 0.5s;
+}
+
+.sect-4 button:hover{
+    transform: scale(1.1);
+}
+
+.sect-about{
+    display: inline-flex;
+}
+
+.sect-5{
+    animation: slide-from-left;
+    animation-duration: 1s;
+    position: absolute;
+    width: 50%;
+    margin: auto;
+    justify-content: center;
+    align-items: center;
+    top: 130px;
+    left: 50px;
+    padding: 0px 20px;
+}
+
+.sect-5 h1{
+    color: white;
+    font-family: Poppins;
+    font-size: 45px;
+    font-weight: 500;
+    transition: transform 0.5s;
+}
+
+.sect-5 h1:hover{
+    transform: scale(1.03);
+}
+
+.sect-5 p{
+    color: rgb(137, 255, 245);
+    font-family: Poppins;
+    font-size: 20px;
+    font-weight: 300;
+}
+
+.sect-5 img{
+    width: 95%;
+    transition: transform 0.5s;
+}
+
+.sect-5 img:hover{
+    transform: scale(0.95);
+}
+
+.sect-6{
+    animation: grow-from-center;
+    animation-duration: 1s;
+    position: fixed;
+    margin: auto;
+    align-items: center;
+    top: 180px;
+    left: 43%;
+}
+
+.sect-7{
+    position: fixed;
+    margin: auto;
+    align-items: center;
+    top: 130px;
+    right: 120px;
+    width: 25%;
+    padding: 0px 20px;
+    justify-content: center;
+}
+
+.sect-7 img{
+    justify-content: center;
+    margin-top: 20px;
+    width: 98%;
+    border-radius:50%;
+    border: 4px dotted white;
+}
+
+.sect-7 h2{
+    display: block;
+    font-family: Poppins;
+    font-size: 35px;
+    font-weight: 700;
+    color: rgb(137, 255, 245);
+    margin: auto;
+    padding-left: 70px;
+}
+
+.sect-7 h3{
+    display: block;
+    font-family: Poppins;
+    font-size: 25px;
+    font-weight: 500;
+    color: white;
+    margin: auto;
+    padding-left: 48px;
+}
+
+.sect-contact{
+    display: inline-flex;
+    justify-content: center;
+}
+
+.sect-8{
+    animation: slide-from-left;
+    animation-duration: 1s;
+    display: block;
+    position: absolute;
+    top: 200px;
+    left: 150px;
+}
+
+.sect-8 h1{
+    color: white;
+    font-family: Poppins;
+    font-size: 45px;
+    font-weight: 500;
+    transition: transform 0.5s;
+}
+
+.sect-8 h1:hover{
+    transform: scale(1.05);
+}
+
+.sect-8 button{
+    background: rgb(0, 32, 32);
+    border: 3px solid rgb(137, 255, 245);
+    border-radius: 5px;
+    color: rgb(137, 255, 245);
+    font-family: Poppins;
+    font-weight: 400;
+    font-size: 25px;
+    margin-right: 10px;
+    transition: transform 0.5s;
+}
+
+.sect-8 a{
+    text-decoration: none;
+    color: rgb(137, 255, 245);
+    font-family: Poppins;
+    font-weight: 300;
+    font-size: 25px;
+}
+.sect-8 a:hover{
+    cursor: pointer;
+}
+
+.sect-8 button:hover{
+    transform: scale(1.05);
+}
+
+.sect-8 p{
+    color: rgb(137, 255, 245);
+    font-family: Poppins;
+    font-weight: 300;
+    font-size: 25px;
+}
+
+.sect-8 b{
+    font-weight: 500;
+}
+
+.sect-9{
+    animation: grow-from-center;
+    animation-duration: 1s;
+    display: block;
+    position: absolute;
+    top: 200px;
+    right: 150px;
+}
+
+.sect-9 button{
+    margin-bottom: 50px;
+    background: rgb(0, 32, 32);
+    border: 3px solid rgb(137, 255, 245);
+    border-radius: 5px;
+    color: rgb(137, 255, 245);
+    font-family: Poppins;
+    font-weight: 400;
+    font-size: 25px;
+    margin-right: 10px;
+    transition: transform 0.5s;
+    padding: 5px 10px;
+    width: 200px;
+}
+
+.sect-9 button:hover{
+    transform: scale(1.05);
+}
+
+.sect-9 a{
+    text-decoration: none;
+    color: rgb(137, 255, 245);
+    font-family: Poppins;
+    font-weight: 300;
+    font-size: 25px;
+}
+.sect-9 a:hover{
+    cursor: pointer;
+}
+
+.sect-10{
+    animation: slide-more-right;
+    animation-duration: 1s;
+    position: absolute;
+    width: 97.5%;
+    margin: auto;
+    display:block;
+    align-items: center;
+    top: 280px;
+    padding: 10px;
+}
+
+.sect-10 h1{
+    text-align: center;
+    font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-size: 40px;
+    font-weight: 400;
+    color: white;
+    justify-content: space-around;
+}
+
+.sect-11{
+    animation: slide-more-right;
+    animation-duration: 1s;
+    position: absolute;
+    width: 97.5%;
+    margin: auto;
+    display: inline-flex;
+    align-items: center;
+    top: 400px;
+    padding: 0px;
+    justify-content: center;
+}
+
+.sect-11 input{
+    background: transparent;
+    border: 4px solid rgb(137, 255, 245);
+    height: 50px;
+    width: 500px;
+    border-radius: 10px;
+    color: white;
+    font-size: 18px;
+    font-family: Poppins;
+    padding-left: 10px;
+}
+
+.sect-11 input::placeholder{
+    align-items: center;
+    font-family: Poppins;
+    font-size: 18px;
+    color: rgb(202, 202, 202);
+}
+
+.sect-11 button{
+    background: rgb(0, 32, 32);
+    border: 4px solid rgb(137, 255, 245);
+    border-radius: 10px;
+    height: 58px;
+    padding: 10px;
+    color: rgb(137, 255, 245);
+    font-family: Poppins;
+    font-size: 18px;
+    font-weight: 700px;
+    align-items: center;
+    transition: transform 0.5s;
+}
+
+.sect-11 button:hover{
+    transform: scale(1.1);
+}
+
+.sect-portfolio{
+    display: inline-flex;
+    position: absolute;
+    animation: slide-from-left;
+    animation-duration: 1s;
+    top: 13%;
+    left: 5%;
+    right: 5%;
+    bottom: 10%;
+}
+
+.sect-12{
+    display: block;
+}
+
+.sect-12 h1{
+    color: white;
+    font-family: Poppins;
+    font-size: 40px;
+    font-weight: 400;
+    transition: transform 0.5s;
+}
+
+.sect-12 h1:hover{
+    transform: scale(1.05);
+}
+
+/*each label will rotate a bit on hovering to indicate that clicking would flip the card to show more details*/
+.sect-12 label{
+    -webkit-perspective: 1000px;
+    perspective: 1000px;
+    -webkit-transform-style: preserve-3d;
+    transform-style: preserve-3d;
+    display: block;
+    width: 650px;
+    height: 150px;
+    cursor: pointer;
+}
+
+.skill-card{
+    align-items: center;
+    border: 3px solid rgb(137, 255, 245);
+    border-radius: 20px;
+    background: rgb(0, 32, 32);
+    height: 100%;
+    width: 100%;
+    -webkit-transform-style: preserve-3d;
+    transform-style: preserve-3d;
+    -webkit-transition: all 600ms;
+    transition: all 600ms;
+    z-index: 20;
+}
+
+.front{
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    text-align: center;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+}
+
+.back{
+    height: 100%;
+    width: 100%;
+    text-align: center;
+    -webkit-transform: rotateX(180deg);
+    transform: rotateX(180deg);
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+}
+
+label:hover .skill-card {
+    -webkit-transform: rotateX(20deg);
+    transform: rotateX(20deg);
+}
+
+.sect-12 input{
+    display: none;
+}
+
+:checked + .skill-card{
+    transform: rotateX(180deg);
+    -webkit-transform: rotateX(180deg);
+}
+
+label:hover :checked + .skill-card{
+    transform: rotateX(160deg);
+    -webkit-transform: rotateX(160deg);
+}
+
+.sect-12 h3{
+    font-family: Poppins;
+    font-size: 40px;
+    font-weight: 500;
+    color: rgb(137, 255, 245);
+}
+
+.sect-12 p{
+    font-family: Poppins;
+    font-size: 18px;
+    font-weight: 300;
+    color: rgb(137, 255, 245);
+}
+
+.skill-1{
+    position: relative;
+    top: 0px;
+}
+
+.skill-2{
+    position: relative;
+    top: 10px;
+}
+
+.skill-3{
+    position: relative;
+    top: 20px;
+}
+
+.sect-13{
+    display: block;
+    position: relative;
+    left: 7%;
+}
+
+.sect-13 h1{
+    color: white;
+    font-family: Poppins;
+    font-size: 40px;
+    font-weight: 400;
+    transition: transform 0.5s;
+}
+
+.sect-13 h1:hover{
+    transform: scale(1.05);
+}
+
+.sect-13 label{
+    -webkit-perspective: 1000px;
+    perspective: 1000px;
+    -webkit-transform-style: preserve-3d;
+    transform-style: preserve-3d;
+    display: block;
+    width: 550px;
+    height: 150px;
+    cursor: pointer;
+}
+
+.sect-13 input{
+    display: none;
+}
+
+.sect-13 h3{
+    font-family: Poppins;
+    font-size: 40px;
+    font-weight: 500;
+    color: rgb(137, 255, 245);
+    margin-top: 20px;
+}
+
+.sect-13 p{
+    font-family: Poppins;
+    font-size: 18px;
+    font-weight: 300;
+    color: rgb(137, 255, 245);
+}
+
+.sect-13 label{
+    -webkit-perspective: 1000px;
+    perspective: 1000px;
+    -webkit-transform-style: preserve-3d;
+    transform-style: preserve-3d;
+    display: block;
+    width: 650px;
+    height: 100px;
+    margin-bottom: 25px;
+    cursor: pointer;
+}
+
+.extra-card{
+    align-items: center;
+    border: 3px solid rgb(137, 255, 245);
+    border-radius: 20px;
+    background: rgb(0, 32, 32);
+    height: 100%;
+    width: 100%;
+    -webkit-transform-style: preserve-3d;
+    transform-style: preserve-3d;
+    -webkit-transition: all 600ms;
+    transition: all 600ms;
+    z-index: 20;
+}
+
+label:hover .extra-card {
+    -webkit-transform: rotateX(20deg);
+    transform: rotateX(20deg);
+}
+
+:checked + .extra-card{
+    transform: rotateX(180deg);
+    -webkit-transform: rotateX(180deg);
+}
+
+label:hover :checked + .extra-card{
+    transform: rotateX(160deg);
+    -webkit-transform: rotateX(160deg);
+}
+
+.extra-1{
+    position: relative;
+}
+
+.extra-2{
+    position: relative;
+}
+
+.extra-3{
+    position: relative;
+}
+
+.extra-4{
+    position: relative;
+}
